@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: rgb(0, 208, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    width: 21vmax;
+    height: 35vmax;
+    background-color:#fff;
+    border-radius: 2vmin;
+    border: 3px solid black;
+    overflow: hidden;                               /*   <------ ye full-screen tag ke liye likha h*/
+    position: relative;                          
+}
+#storiyan{
+    width: 100%;
+    height: 120px;
+    border-radius: 1.5vmin 1.5vmin 0 0 ;       /*yh mene isliye kyo ki card ko radius di h, storiyan 100% card ki width le rhi h to storiyan div ka corner bhar ja rha tha*/
+    border-bottom: 2px solid #dadada;
+    padding: 15px ;
+    /*display: flex;    ab sbhi stories hon ko ak line m lane ke liye hm display flex to use kr skte h pr pr display flax sbhi bhi golo/stories ko is chote div m gusa kr size unka bigad dega (kitni bhi story dalo display flex se sari stories ko es chote se div(storiyan) me gusa degi aur golo ko size bigad degi
+    👂to suno display: flex; ki jgh ak aur property h jise hm use kr skte h i.e display: inline-block; /
+    pr isko use kre ge hm story m */
+    white-space: nowrap;      /*ye kyo use kiya eski sari detail just thodi niche h*/
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+#storiyan::-webkit-scrollbar{
+    display: none;
+}
+.story{
+    width: 90px;
+    height: 90px;
+    border-radius: 4vmax;
+    /* border: 2px solid black;       <----------  for gradient border   2properties needed */
+    background: linear-gradient(rgb(247, 247, 0),orange,rgb(225, 8, 44),blue,purple);     
+    padding: 5px;
+    display: inline-block;   /*ese sare element(stories) ak line m aa jayege===> pr yha bhi ak dikt h ??
+    dikt ye h ki 👁️2 chij hoti h :👇
+    1) display:block ---> jo ki default hota hi h  nhi to ak bar inline hta kr dekho hr ak story hr ak pure pure block lelegi
+  -------2) pr jb hm khe ge display:inline-block; to (stories->) block ki sari property to follow krega lekin jitna size h utna hi lega ya utna hi ayega
+    pr 
+    problem yh h ki mene jayada story dal di(mtlb ki div/storyDiv to) to jitna size h utna to lega lekin agla element niche a jayega
+    ===>👉lekin hm chahte h ki sari storiya ak hi line m aa jaye=========>
+                to hm use krege     white-space: nowrap;       to ese kya hoga ki 👇
+    storiyan ke sare child ak hi line m a jaye ge (wrap nhi hogi chije)=> 👇ab ap dekho chije bhar
+                                                                            niklte dikh rhi h to
+                                  -------- to hm use krege overflow: hidden; nhiii
+                                        ===> hm use krege overflow-x:auto;   x axis m overflow ko auto kr diya
+                                          ab y-axis m scroll a gya to usko hta dege overflow-y:hidden
+    */
+    margin-right: 5px;
+}
+#full-screen{
+    width: 100%;
+    height: 100%;
+    position: absolute;              /*   <----- ye isliye diya kyo ki isne card 100% h/w le ke esne hmari stories ko niche fek rha h*/
+    display: none;                       /*disply:block kre ge js se with story*/
+    background-position: center;         /*i dont know why i have give this 2 line , and if we comment also no changes we will going to see*/
+    background-size: cover;
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;         /*  <---story m overflow hidden nhi kr skte the yha border-radius  ke bjaye*/
+}
+
+@media (max-width:400px) {           
+    .card{
+        width: 37vmax;
+        height: 58vmax;
+        background-color: #fff;
+        border-radius: 2vmin;
+    }
+    #storiyan{
+        width: 100%;
+        height: 95px;
+        border-radius: 1vmin 1vmin 0 0 ;
+        padding: 10px ;
+    }
+    .story{
+        width: 76px;
+        height: 76px;
+        background-color: blue;
+        border-radius: 6vmax;
+        padding: 3px;
+    }
+}
+
+@media (max-height:400px) {
+    .card{
+        width: 26vmax;
+        height: 35vmax;
+        background-color: #fff;
+        border-radius: 3vmin;
+    }
+    #storiyan{
+        width: 100%;
+        height: 75px;
+        padding: 7.5px;
+    }
+    .story{
+        width: 60px;
+        height: 60px;
+        background-color: blue;
+        border-radius: 6vmax;
+        padding: 3px;
+    }
+}
