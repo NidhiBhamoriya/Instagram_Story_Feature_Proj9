@@ -1,3 +1,3 @@
 # Instagram Story Feature
 
-Stories that related Childhood.
+Stories that relate Our Childhood.
